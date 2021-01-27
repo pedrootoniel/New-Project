@@ -1,13 +1,16 @@
-import React, { Fragment } from 'react';
-import { Container, Wraper, Img, LinkA, Ul } from './styles'
+import React, { useState, Fragment } from 'react'
+
+import 'react-router-dom'
+import SignUp from '../../Pages/Singup'
+import { Container, Wraper, Img, LinkA, Ul, SignUpButton } from './styles'
 import Logo from '../../assets/logo.svg'
 
 
 
+function Header({ history }) {
 
-// import { Container } from './styles';
+  const [showSignUp, setShowSignUp] = useState(false);
 
-function Header() {
   return (
     <Fragment>
       <Container>
@@ -34,13 +37,20 @@ function Header() {
               Clientes
           </a>
             </li>
-            <li> <a href="google.com">
-              Fazer Login
-          </a>
-            </li>
-          </Ul>
 
+          </Ul>
         </Wraper>
+        <Ul>
+          <li> <a href="google.com">
+            Fazer Login
+          </a>
+          </li>
+          <SignUpButton onClick={() => setShowSignUp(!showSignUp)}>Criar uma conta</SignUpButton>
+          {
+            showSignUp &&
+            <SignUp setShowSignUp={setShowSignUp} history={history} />
+          }
+        </Ul>
       </Container>
     </Fragment>
   )

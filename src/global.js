@@ -29,4 +29,5 @@ export default createGlobalStyle`
       --color-purple2:#690375;
       --color-purple:#2C0E37;
     }
+    
 `
