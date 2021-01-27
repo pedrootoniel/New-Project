@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components'
+import { shade } from 'polished'
+import { Form } from '@unform/web'
 
 export const Topo = styled.div`
   display:flex;
   height: 100%;
   flex-direction:column;
-
 `
 export const Container = styled.div`
   display:flex;
@@ -13,63 +14,30 @@ export const Container = styled.div`
   align-items:center;
   position:relative;
 `
-export const Wraper = styled.div`
+export const WrapperDrop = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:100px;
   border-radius:30px;
   height:400px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
-export const Form = styled.div`
-    background-color: var(--color-purple);
+// DIV PAI DO LOGIN
+export const FormUnform = styled(Form)`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color:var(--color-background-geral);
     padding: 0 50px;
+    width:700px;
     height: 100%;
-    text-align: center;
     border-radius:30px;
-`;
-export const Span = styled.span`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  font-size:30px;
-  padding:200px;
-  color:var( --color-purple3);
-
-  
-`;
-export const Input = styled.input`
-  display:flex;
-  width:300px;
-  margin-top:30px;
-  padding:20px;
-  outline:none;
-  border-radius:30px;
-  
-`;
-export const Button = styled.button`
-    border-radius: 20px;
-    border: 1px solid green;
-    background-color: var(--color-button1);
-    color: var(--color-white);
-    font-size: 12px;
-    font-weight: bold;
-    padding: 14px 35px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top:30px;
-  &:hover{
-    background-color:var(--color-purple2);
-    color:var(--color-white);
-  }
+    opacity:80%;
+    .Inputs{
+      width:300px;
+    }
 `
-
 export const Video = styled.video`
 position: absolute;
   right: 0;
@@ -80,4 +48,50 @@ position: absolute;
   width: auto;
   height: auto;
   z-index:-1;
+`
+export const TextLogin = styled.p`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-left: 5px;
+  color: var(--color-black);
+  font-size: 20px;
+  font-weight: 500;
+  ${props => props.subtitle && css`
+    padding: 0 0 0 90px;
+    width: 525px;
+    font-size: 22px;
+  `}
+  `
+// BUTTON DE LOGIN DA LANDINGPAGE
+export const SignUpButton = styled.button`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 200px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--color-button);
+  color: var(--color-white);
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+  :hover{
+    background: ${shade(0.2, '#575A89')};
+  }
+  ${props => props.login && css`
+    width: 100px;
+    margin-top: 10px;
+  `}
+`
+export const Div = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+  background-color:var(--color-text);
+`
+export const Img = styled.img`
+  display:flex;
 `

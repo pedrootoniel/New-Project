@@ -1,16 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Global from './global'
 import Login from './Pages/Login'
+import client from './Hooks/AuthProvider'
+import { ApolloProvider } from '@apollo/client';
 
-// import { Container } from './styles';
+// Initialize Apollo Client
+const App = () => (
+  <ApolloProvider client={client}>
+    <Global />
+    <Login />
+  </ApolloProvider>
+);
 
-function src() {
-  return (
-    <Fragment>
-      <Global />
-      <Login />
-    </Fragment>
-  )
-}
-
-export default src;
+export default App;
